@@ -1,6 +1,6 @@
 {
   "name": "@vinsjo/create-vite-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Vincent Sjögren",
   "license": "MIT",
   "description": "A package for creating a minimal react app using my preferred template setup, based on create-vite: https://github.com/vitejs/vite/tree/main/packages/create-vite",
