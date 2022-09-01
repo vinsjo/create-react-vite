@@ -8,7 +8,7 @@
     "type": "git",
     "url": "https://github.com/vinsjo/create-react-vite"
   },
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "npx unbuild -y",
     "prepublishOnly": "npm run build"
