@@ -89,54 +89,56 @@ function toValidPackageName(projectName) {
 
 	let result = {};
 	try {
-		result = await prompts([
-			{
-				type: targetDir ? null : 'text',
-				name: 'projectName',
-				message: reset('Project name:'),
-				initial: defaultTargetDir,
-				onState: (state) => {
-					targetDir =
-						formatTargetDir(state.value) || defaultTargetDir;
+		result = await prompts(
+			[
+				{
+					type: targetDir ? null : 'text',
+					message: reset('Project name:'),
+					initial: defaultTargetDir,
+					onState: (state) => {
+						targetDir =
+							formatTargetDir(state.value) || defaultTargetDir;
+					},
+					name: 'projectName',
 				},
-			},
-			{
-				type: () =>
-					targetDir &&
-					(!fs.existsSync(targetDir) || isEmpty(targetDir))
-						? null
-						: 'confirm',
-				name: 'overwrite',
-				message: () =>
-					(targetDir === '.'
-						? 'Current directory'
-						: `Target directory "${targetDir}"`) +
-					` is not empty. Remove existing files and continue? `,
-			},
-			{
-				type: (_, { overwrite }) => {
-					if (overwrite === false) {
-						throw new Error(red('✖') + ' Operation cancelled');
-					}
-					return null;
+				{
+					type: () =>
+						targetDir &&
+						(!fs.existsSync(targetDir) || isEmpty(targetDir))
+							? null
+							: 'confirm',
+					message: () =>
+						(targetDir === '.'
+							? 'Current directory'
+							: `Target directory "${targetDir}"`) +
+						` is not empty. Remove existing files and continue? `,
+					name: 'overwrite',
 				},
-				name: 'overwriteChecker',
-			},
-			{
-				type: () =>
-					isValidPackageName(getProjectName()) ? null : 'text',
-				name: 'packageName',
-				message: reset('Package name:'),
-				initial: () => toValidPackageName(getProjectName()),
-				validate: (dir) =>
-					isValidPackageName(dir) || 'Invalid package.json name',
-			},
+				{
+					type: (_, { overwrite }) => {
+						if (overwrite === false) {
+							throw new Error(red('✖') + ' Operation cancelled');
+						}
+						return null;
+					},
+					name: 'overwriteChecker',
+				},
+				{
+					type: () =>
+						isValidPackageName(getProjectName()) ? null : 'text',
+					name: 'packageName',
+					message: reset('Package name:'),
+					initial: () => toValidPackageName(getProjectName()),
+					validate: (dir) =>
+						isValidPackageName(dir) || 'Invalid package.json name',
+				},
+			],
 			{
 				onCancel: () => {
 					throw new Error(red('✖') + ' Operation cancelled');
 				},
-			},
-		]);
+			}
+		);
 	} catch (e) {
 		console.log(e.message);
 		return;
