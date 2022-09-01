@@ -23,7 +23,7 @@ function copy(src, dest) {
  * @param {string} targetDir
  */
 function formatTargetDir(targetDir) {
-	return targetDir?.trim().replace(/\/+$/g, '');
+	return targetDir?.trim().replace(/\/+$/g, '') || '';
 }
 
 /**
@@ -80,12 +80,10 @@ function toValidPackageName(projectName) {
 
 (async function main() {
 	let targetDir = formatTargetDir(argv._[0]);
-	const defaultTargetDir = 'react-vite-project';
+	const defaultTargetDir = 'vite-react-app';
 
 	const getProjectName = () =>
-		!targetDir || targetDir === '.'
-			? path.basename(path.resolve())
-			: targetDir;
+		!targetDir ? path.basename(path.resolve()) : targetDir;
 
 	let result = {};
 	try {
@@ -103,8 +101,9 @@ function toValidPackageName(projectName) {
 				},
 				{
 					type: () =>
-						targetDir &&
-						(!fs.existsSync(targetDir) || isEmpty(targetDir))
+						!targetDir ||
+						!fs.existsSync(targetDir) ||
+						isEmpty(targetDir)
 							? null
 							: 'confirm',
 					message: () =>
