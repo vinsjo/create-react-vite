@@ -23,7 +23,7 @@ function copy(src, dest) {
  * @param {string} targetDir
  */
 function formatTargetDir(targetDir) {
-	return !targetDir ? '.' : targetDir?.trim().replace(/\/+$/g, '');
+	return targetDir?.trim().replace(/\/+$/g, '');
 }
 
 /**
