@@ -1,0 +1,32 @@
+name: 'build & lint'
+
+on:
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
+
+jobs:
+    build_package:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: 'Setting up Node@16'
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - run: 'npm install'
+            - run: 'npx eslint src/index.js'
+            - run: 'npm run build'
+    build_template:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: 'Setting up Node@16'
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - run: 'cd template'
+            - run: 'npm install'
+            - run: 'npx eslint src --ext .js,.jsx'
+            - run: 'npm run build'

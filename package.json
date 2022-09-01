@@ -1,0 +1,31 @@
+{
+  "name": "@vinsjo/create-vite-react",
+  "version": "1.0.0",
+  "author": "Vincent Sjögren",
+  "description": "A package for creating a minimal react app, based on create-vite: https://github.com/vitejs/vite/tree/main/packages/create-vite",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "npx unbuild -y",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "index.js",
+    "template",
+    "dist"
+  ],
+  "bin": "index.js",
+  "keywords": [
+    "react",
+    "vite",
+    "frontend"
+  ],
+  "devDependencies": {
+    "cross-spawn": "^7.0.3",
+    "eslint": "^8.23.0",
+    "kolorist": "^1.5.1",
+    "minimist": "^1.2.6",
+    "prompts": "^2.4.2",
+    "unbuild": "^0.8.9"
+  },
+  "license": "MIT"
+}
