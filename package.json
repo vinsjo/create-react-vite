@@ -2,7 +2,12 @@
   "name": "@vinsjo/create-vite-react",
   "version": "1.0.0",
   "author": "Vincent Sjögren",
-  "description": "A package for creating a minimal react app, based on create-vite: https://github.com/vitejs/vite/tree/main/packages/create-vite",
+  "license": "MIT",
+  "description": "A package for creating a minimal react app using my preferred template setup, based on create-vite: https://github.com/vitejs/vite/tree/main/packages/create-vite",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vinsjo/create-react-vite"
+  },
   "main": "src/index.js",
   "scripts": {
     "build": "npx unbuild -y",
@@ -26,6 +31,5 @@
     "minimist": "^1.2.6",
     "prompts": "^2.4.2",
     "unbuild": "^0.8.9"
-  },
-  "license": "MIT"
+  }
 }
