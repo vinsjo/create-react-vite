@@ -1,5 +1,4 @@
 // Based on and copied from: https://github.com/vitejs/vite/blob/main/packages/create-vite/src/index.js
-
 // @ts-check
 import fs from 'fs';
 import path from 'path';
@@ -79,7 +78,7 @@ function toValidPackageName(projectName) {
 		.replace(/[^a-z0-9-~]+/g, '-');
 }
 
-async function init() {
+(async function main() {
 	let targetDir = formatTargetDir(argv._[0]);
 	const defaultTargetDir = 'react-vite-project';
 
@@ -112,7 +111,7 @@ async function init() {
 					(targetDir === '.'
 						? 'Current directory'
 						: `Target directory "${targetDir}"`) +
-					` is not empty. Remove existing files and continue?`,
+					` is not empty. Remove existing files and continue? `,
 			},
 			{
 				type: (_, { overwrite }) => {
@@ -188,5 +187,4 @@ async function init() {
 	console.log('  npm install');
 	console.log('  npm run dev');
 	console.log();
-}
-init().catch((e) => console.error(e));
+})().catch((e) => console.error(e));

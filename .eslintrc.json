@@ -9,6 +9,6 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"ignorePatterns": ["template/**"],
+	"ignorePatterns": ["template/**", "dist/**"],
 	"rules": {}
 }
