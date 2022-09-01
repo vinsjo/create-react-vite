@@ -6,7 +6,7 @@
   "description": "A package for creating a minimal react app using my preferred template setup, based on create-vite: https://github.com/vitejs/vite/tree/main/packages/create-vite",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vinsjo/create-react-vite"
+    "url": "https://github.com/vinsjo/create-vite-react"
   },
   "type": "module",
   "main": "index.js",
@@ -19,9 +19,7 @@
     "template",
     "dist"
   ],
-  "bin": {
-    "@vinsjo/create-react-vite": "index.js"
-  },
+  "bin": "index.js",
   "keywords": [
     "react",
     "vite",
