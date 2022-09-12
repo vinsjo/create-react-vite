@@ -12,7 +12,8 @@
   "main": "index.js",
   "scripts": {
     "build": "npx unbuild -y",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "lint": "npx eslint src --ext .ts,.js"
   },
   "files": [
     "index.js",

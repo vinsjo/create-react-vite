@@ -16,7 +16,7 @@ jobs:
               with:
                   node-version: 16
             - run: 'npm install'
-            - run: 'npx eslint src/index.js'
+            - run: 'npm run lint'
             - run: 'npm run build'
     build_template_js:
         runs-on: ubuntu-latest
