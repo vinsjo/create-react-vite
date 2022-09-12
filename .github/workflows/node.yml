@@ -18,7 +18,7 @@ jobs:
             - run: 'npm install'
             - run: 'npx eslint src/index.js'
             - run: 'npm run build'
-    build_template:
+    build_template_js:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
@@ -26,7 +26,19 @@ jobs:
               uses: actions/setup-node@v3
               with:
                   node-version: 16
-            - run: 'cd template'
+            - run: 'cd template-js'
             - run: 'npm install'
             - run: 'npx eslint src --ext .js,.jsx'
+            - run: 'npm run build'
+    build_template_ts:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: 'Setting up Node@16'
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - run: 'cd template-ts'
+            - run: 'npm install'
+            - run: 'npx eslint src --ext .ts,.tsx,.js,.jsx'
             - run: 'npm run build'
