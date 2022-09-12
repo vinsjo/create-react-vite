@@ -30,6 +30,7 @@
   "devDependencies": {
     "@types/minimist": "^1.2.2",
     "@types/prompts": "^2.0.14",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
     "eslint": "^8.23.0",
     "kolorist": "^1.5.1",
     "minimist": "^1.2.6",

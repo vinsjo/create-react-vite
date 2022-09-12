@@ -16,9 +16,7 @@ import {
 	toValidPackageName,
 } from './utils';
 
-const argv = minimist<{
-	t?: string;
-}>(process.argv.slice(2), { string: ['_'] });
+const argv = minimist(process.argv.slice(2), { string: ['_'] });
 const cwd = process.cwd();
 
 (async function main() {
@@ -85,8 +83,8 @@ const cwd = process.cwd();
 				},
 			}
 		);
-	} catch (err: any) {
-		console.log(err.message);
+	} catch (err: Error | unknown) {
+		if (err instanceof Error) console.log(err.message);
 		return;
 	}
 
