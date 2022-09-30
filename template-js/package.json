@@ -21,7 +21,6 @@
         "eslint-plugin-react": "latest",
         "prettier": "latest",
         "pretty-quick": "latest",
-        "husky": "latest",
         "vite": "latest"
     }
 }
