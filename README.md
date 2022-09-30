@@ -8,12 +8,12 @@
 
 ## Installation
 
-````bash
+```bash
 npx @vinsjo/create-vite-react
-````
+```
 
 Or, if you want to specify the project name in command line options:
 
-````bash
+```bash
 npx @vinsjo/create-vite-react my-react-app
-````
+```

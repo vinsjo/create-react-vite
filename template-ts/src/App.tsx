@@ -1,5 +1,5 @@
 const App = () => {
-	return <>Vite React Template App</>;
+    return <>Vite React Template App</>;
 };
 
 export default App;

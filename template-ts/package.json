@@ -1,27 +1,31 @@
 {
-  "name": "react-template-ts",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "lint": "npx eslint src --ext .ts,.tsx,.js,.jsx"
-  },
-  "dependencies": {
-    "react": "latest",
-    "react-dom": "latest"
-  },
-  "devDependencies": {
-    "@types/react": "latest",
-    "@types/react-dom": "latest",
-    "@typescript-eslint/eslint-plugin": "latest",
-    "@typescript-eslint/parser": "latest",
-    "@vitejs/plugin-react": "latest",
-    "eslint": "latest",
-    "eslint-plugin-react": "latest",
-    "typescript": "latest",
-    "vite": "latest"
-  }
+    "name": "react-template-ts",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "format": "npx prettier --write src",
+        "lint": "npx eslint src --ext .ts,.tsx,.js,.jsx"
+    },
+    "dependencies": {
+        "react": "latest",
+        "react-dom": "latest"
+    },
+    "devDependencies": {
+        "@types/react": "latest",
+        "@types/react-dom": "latest",
+        "@typescript-eslint/eslint-plugin": "latest",
+        "@typescript-eslint/parser": "latest",
+        "@vitejs/plugin-react": "latest",
+        "eslint": "latest",
+        "eslint-plugin-react": "latest",
+        "typescript": "latest",
+        "prettier": "latest",
+        "pretty-quick": "latest",
+        "husky": "latest",
+        "vite": "latest"
+    }
 }
