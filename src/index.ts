@@ -47,13 +47,16 @@ const cwd = process.cwd();
                         !fs.existsSync(targetDir) ||
                         isEmpty(targetDir)
                             ? null
-                            : 'confirm',
+                            : 'toggle',
                     message: () =>
                         (targetDir === '.'
                             ? 'Current directory'
                             : `Target directory "${targetDir}"`) +
                         ` is not empty. Remove existing files and continue? `,
                     name: 'overwrite',
+                    initial: false,
+                    active: 'yes',
+                    inactive: 'no',
                 },
                 {
                     type: (_, { overwrite }) => {
@@ -72,9 +75,12 @@ const cwd = process.cwd();
                         isValidPackageName(dir) || 'Invalid package.json name',
                 },
                 {
-                    type: 'confirm',
+                    type: 'toggle',
                     name: 'useTypeScript',
                     message: 'Use TypeScript? ',
+                    initial: false,
+                    active: 'yes',
+                    inactive: 'no',
                 },
             ],
             {
