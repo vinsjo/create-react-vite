@@ -27,7 +27,11 @@ const cwd = process.cwd();
         !targetDir ? path.basename(path.resolve()) : targetDir;
 
     let result: prompts.Answers<
-        'projectName' | 'overwrite' | 'packageName' | 'useTypeScript'
+        | 'projectName'
+        | 'overwrite'
+        | 'packageName'
+        | 'useTypeScript'
+        | 'useGithubAction'
     >;
     try {
         result = await prompts(
@@ -82,6 +86,14 @@ const cwd = process.cwd();
                     active: 'yes',
                     inactive: 'no',
                 },
+                {
+                    type: 'toggle',
+                    name: 'useGithubAction',
+                    message: 'Include lint/build GitHub action? ',
+                    initial: false,
+                    active: 'yes',
+                    inactive: 'no',
+                },
             ],
             {
                 onCancel: () => {
@@ -94,7 +106,7 @@ const cwd = process.cwd();
         return;
     }
 
-    const { overwrite, packageName, useTypeScript } = result;
+    const { overwrite, packageName, useTypeScript, useGithubAction } = result;
     const root = path.join(cwd, targetDir);
 
     if (overwrite) {
@@ -123,7 +135,12 @@ const cwd = process.cwd();
 
     const files = fs.readdirSync(templateDir);
     for (const file of files) {
-        if (file === 'package.json') continue;
+        if (
+            file === 'package.json' ||
+            (!useGithubAction && file === '.github')
+        ) {
+            continue;
+        }
         write(file);
     }
 
